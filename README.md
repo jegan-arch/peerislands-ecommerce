@@ -1,10 +1,10 @@
 # PeerIslands E-commerce Order Service
 
-A production-ready, modular monolith Order Management System built with **Java 21** and **Spring Boot 4**. This project demonstrates "Senior Architect" patterns including clean architecture, optimistic locking, inventory management, and dockerized deployment.
+A production-ready Order Management System built with **Java 21** and **Spring Boot 4**. This project implements industry-standard practices including domain separation, optimistic locking, and transactional inventory management.
 
 ## 🚀 Key Features
 
-* **Modular Monolith Architecture:** Distinct separation between **Order**, **Catalog**, and **Inventory** domains.
+* **Domain Separation:** Distinct separation between **Order**, **Catalog**, and **Inventory** domains.
 * **Robust Inventory Management:** Atomic stock reservation with "Compensating Transaction" support (rollback on failure).
 * **Extensible Validation:** Uses the **Strategy Pattern** to create a pluggable validation pipeline (Inventory checks, etc.).
 * **Concurrency Control:** Implements **Optimistic Locking** (`@Version`) to handle race conditions between user cancellations and background jobs.

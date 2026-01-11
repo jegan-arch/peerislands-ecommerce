@@ -1,5 +1,0 @@
-spring:
-  application:
-    name: ecommerce
-  profiles:
-    active: h2

@@ -50,7 +50,6 @@ public class OrderServiceImpl implements OrderService {
 
                     orderValidators.forEach(v -> v.validate(cmd, product));
 
-                    // Atomic Reservation (Throws BusinessException if fails)
                     inventoryService.reserveStock(product.id(), cmd.quantity());
 
                     return OrderItemEntity.builder()
@@ -67,7 +66,6 @@ public class OrderServiceImpl implements OrderService {
             OrderEntity savedEntity = orderRepository.save(entity);
             return mapToDomain(savedEntity);
         } catch (Exception e) {
-            // Rollback Memory State
             for (OrderItemEntity item : items) {
                 inventoryService.releaseStock(item.getProductId(), item.getQuantity());
             }
